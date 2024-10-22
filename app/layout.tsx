@@ -8,6 +8,7 @@ import "./globals.css";
 
 const nunito = Nunito({ subsets: ["latin"] });
 const alegreya  =Alegreya({subsets:["latin"]})
+// const roboto  =Roboto({weight:"400"})
 
 export const metadata = {
   title: "Deepanshu | Software Engineer",

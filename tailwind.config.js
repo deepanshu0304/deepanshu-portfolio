@@ -21,9 +21,9 @@ module.exports = {
         "white-100": "#f3f3f3",
       },
       fontFamily: {
-        custom: ['Nunito', 'sans-sarif'],
-        cust: ['Alegreya', 'sans-sarif'],
-        cust3:['Roboto','sans-sarif'],
+        // custom: ['Nunito', 'sans-sarif'],
+        // cust: ['Alegreya', 'sans-sarif'],
+        custom:['Alegreya','sans-sarif'],
       },
       inset: {
         '-125':'-125px',

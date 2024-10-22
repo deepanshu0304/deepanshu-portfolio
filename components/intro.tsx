@@ -65,10 +65,10 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="text-7xl">Hello, I'm <span className="text-blue-600   font-bold">Deepanshu</span> </span> <br />
+        <span className="  text-7xl">Hello, I'm <span className="text-blue-600   font-bold">Deepanshu</span> </span> <br />
         {/* I'm a{" "} */}
         {/* <br /> */}
-        <p className="font-cust mt-2">
+        <p className="font-custom mt-2">
         I’m a Software Development Engineer with a strong background in both frontend, backend development and mobile app development, machine learning.
         </p>
       </motion.h1>
@@ -139,7 +139,7 @@ resume
         </a> */}
         <a
           className="group   text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 active:scale-105 transition border-2 border-white border-opacity-40"
-          href="https://drive.google.com/file/d/1CY8kU70OmIWUki27O4N9Y-3Ni_HWSNEf/view?usp=drive_link"
+          href="https://drive.google.com/file/d/1i-GgLXw4rT4Dz9bw4jCR9Phj2i36ia6Y/view?usp=sharing"
           target="_blank"
         >
           <span className="opacity-70">Resume</span>

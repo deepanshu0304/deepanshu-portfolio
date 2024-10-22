@@ -13,6 +13,7 @@ export default function Home() {
       <Head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"></link>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;600;700;800;900&display=swap"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet"></link>
       </Head>
     <main className="flex flex-col items-center">
       <Intro />
