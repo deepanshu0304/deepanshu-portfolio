@@ -1,15 +1,24 @@
 "use client";
 
-import React from "react";
+import React, {useRef} from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
+import { validateString, getErrorMessage } from "@/lib/utils";
 import SubmitBtn from "./submit-btn";
 import toast from "react-hot-toast";
+import emailjs from "@emailjs/browser";
+
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
+  // const formRef = useRef();
+
+
+  const handleSubmit = (e:any) => {
+    
+  }
 
   return (
     <motion.section
@@ -40,17 +49,54 @@ export default function Contact() {
       </p>
 
       <form
+        // ref={formRef}
         className="mt-10 flex flex-col dark:text-black"
+        // onSubmit={handleSubmit}
         action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
+          const senderEmail = formData.get("senderEmail");
+          const message = formData.get("message");
+          let errorMsg = null;
 
-          if (error) {
-            toast.error(error);
-            return;
+          if (!validateString(senderEmail, 500)) {
+            
+            errorMsg = "Invalid sender email"
+            
+          }
+
+          if (!validateString(message, 5000)) {
+            
+              errorMsg = "Invalid message"
+          }
+          // const { data, error } = await sendEmail(formData);
+          // console.log(data);
+          const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!
+          const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!
+          const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+
+          try {
+            const data = await emailjs.send(serviceId, templateId, {
+              from_name: "form.name",
+              to_name: "Deepanshu",
+              from_email: senderEmail,
+              to_email: "deepanshu180304@gmail.com",
+              message: message,
+            },
+              publicKey
+            );
+            
+          } catch (er) {
+            
+            errorMsg = getErrorMessage(er);
+            
+          }
+
+          if (errorMsg) {
+            toast.error(errorMsg);
+            return; 
           }
 
           toast.success("Email sent successfully!");
-          formData.set("senderEmail", "")
+          // formData.set("senderEmail", "")
           // formData.forEach
           // form.
           
